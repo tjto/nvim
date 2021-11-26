@@ -1,0 +1,7 @@
+require('config.wk')
+require('config.project')
+require('config.kommentary')
+require('config.treesitter')
+require('config.git')
+require('config.barbar')
+require('config.feline')
