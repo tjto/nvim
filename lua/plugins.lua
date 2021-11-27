@@ -80,3 +80,30 @@ use {
         require('hardline').setup {}
     end
 }
+
+-- LSP
+use 'neovim/nvim-lspconfig' -- Configuration
+use 'ray-x/lsp_signature.nvim' -- Signature Help
+use 'kosayoda/nvim-lightbulb' -- Lightbulb on Code Action
+use 'simrat39/symbols-outline.nvim' -- Symbols list
+use 'onsails/lspkind-nvim' -- LSP Completion Item Icons
+
+-- Completion and snippets
+use 'L3MON4D3/LuaSnip'
+use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-nvim-lua',
+        'hrsh7th/cmp-calc',
+        'saadparwaiz1/cmp_luasnip',
+    }
+}
+
+
+use {
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons'
+}
