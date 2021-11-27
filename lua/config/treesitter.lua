@@ -3,7 +3,7 @@ require'nvim-treesitter.configs'.setup {
     ensure_installed = {
         'c',
         'cpp',
-        'python',
+        -- 'python',
         'gdscript',
         'rust',
         'bash',
@@ -25,7 +25,7 @@ require'nvim-treesitter.configs'.setup {
     },
     highlight = {
         enable = true,
-        disable = {},
+        disable = {"python"},
     },
     incremental_selection = {
         enable = true,
