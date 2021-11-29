@@ -149,11 +149,15 @@ utils.create_augroup({
 }, 'MkdirOnSave')
 
 utils.create_augroup({
+    {'FileType', 'json', 'setlocal', 'indentLine_conceallevel=0'}
+}, 'json-file-type')
+
+utils.create_augroup({
     {'FileType', 'go', 'setlocal', 'ts=8 sts=8 sw=8 noexpandtab indentkeys-=0# indentkeys-=<:>'}
 }, 'yaml-file-type')
 
 utils.create_augroup({
-    {'FileType', 'yaml', 'setlocal', 'ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>', 
-        'BufNewFile,BufReadPost', '*.{yaml,yml}', 'set', 'filetype=yaml foldmethod=indent'}
+    {'FileType', 'yaml', 'setlocal', 'ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>'}, 
+    {'BufNewFile,BufReadPost', '*.{yaml,yml}', 'set', 'filetype=yaml foldmethod=indent'}
 }, 'yaml-file-type')
 

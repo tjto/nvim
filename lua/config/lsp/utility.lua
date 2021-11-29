@@ -4,6 +4,7 @@ local utils = require('utility')
 
 local M = {}
 
+
 -- Utilities to help configuring LSP servers
 -- Default on_attach for LSP servers
 function M.default_on_attach(client, bufnr)

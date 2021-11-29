@@ -1,4 +1,5 @@
 require('config.lsp.lsp')
+local util = require("lspconfig.util")
 
 require'nvim-lightbulb'.update_lightbulb {
     sign = {
@@ -93,19 +94,11 @@ lsputils.clients['pyright'].setup {
 
 lsputils.clients['graphql'].setup {}
 
-lsputils.clients['jsonls'].setup {
-    commands = {
-      Format = {
-        function()
-          vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-        end
-      }
-    }
-}
-
 lsputils.clients['terraformls'].setup {}
 
-lsputils.clients['tsserver'].setup {}
+lsputils.clients['tsserver'].setup {
+    root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
+}
 
 lsputils.clients['yamlls'].setup {
     settings = {
