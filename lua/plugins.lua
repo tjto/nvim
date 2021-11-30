@@ -35,8 +35,8 @@ use 'famiu/bufdelete.nvim'
 use 'b3nj5m1n/kommentary'
 
 -- Tresitter
--- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
--- use 'nvim-treesitter/nvim-treesitter-textobjects'
+use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+use 'nvim-treesitter/nvim-treesitter-textobjects'
 
 
 -- Better quickfix window
