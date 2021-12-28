@@ -149,7 +149,7 @@ utils.create_augroup({
 }, 'MkdirOnSave')
 
 utils.create_augroup({
-    {'FileType', 'json', 'setlocal', 'indentLine_conceallevel=0'}
+    {'FileType', 'json', 'setlocal', 'conceallevel=0'}
 }, 'json-file-type')
 
 utils.create_augroup({

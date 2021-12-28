@@ -4,7 +4,6 @@ local utils = require('utility')
 
 local M = {}
 
-
 -- Utilities to help configuring LSP servers
 -- Default on_attach for LSP servers
 function M.default_on_attach(client, bufnr)
@@ -36,15 +35,16 @@ function M.default_on_attach(client, bufnr)
     buf_set_keymap('n', '<Leader>lD', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<C-Space>',
-        '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ border = "single" })<CR>',
+        '<cmd>lua vim.diagnostic.open_float({ source = "always" })<CR>',
         opts
     )
+
     buf_set_keymap('n', ']g',
-        '<cmd>lua vim.lsp.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>',
+        '<cmd>lua vim.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>',
         opts
     )
     buf_set_keymap('n', '[g',
-        '<cmd>lua vim.lsp.diagnostic.goto_prev({ popup_opts = { border = "single" }})<CR>',
+        '<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { border = "single" }})<CR>',
         opts
     )
     buf_set_keymap('n', '<Leader>lds', '<C-Space>', { silent = true })
@@ -165,7 +165,6 @@ function M.default_capabilities()
 
     return capabilities
 end
-
 
 -- Default config for LSP servers
 function M.default_config()

@@ -43,17 +43,17 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
 )
 
 -- Diagnostic Signs
-fn.sign_define('LspDiagnosticsSignError',
-    { text = '✗', texthl = 'LspDiagnosticsSignError' })
+fn.sign_define('DiagnosticsSignError',
+    { text = '✗', texthl = 'DiagnosticsSignError' })
 
-fn.sign_define('LspDiagnosticsSignWarning',
-    { text = '', texthl = 'LspDiagnosticsSignWarning' })
+fn.sign_define('DiagnosticsSignWarn',
+    { text = '', texthl = 'DiagnosticsSignWarn' })
 
-fn.sign_define('LspDiagnosticsSignInformation',
-    { text = '', texthl = 'LspDiagnosticsSignInformation' })
+fn.sign_define('DiagnosticsSignInfo',
+    { text = '', texthl = 'DiagnosticsSignInfo' })
 
-fn.sign_define('LspDiagnosticsSignHint',
-    { text = '', texthl = 'LspDiagnosticsSignHint' })
+fn.sign_define('DiagnosticsSignHint',
+    { text = '', texthl = 'DiagnosticsSignHint' })
 
 -- LSP Item Kinds
 require('lspkind').init({
@@ -87,4 +87,3 @@ require('lspkind').init({
         TypeParameter = ""
     },
 })
-

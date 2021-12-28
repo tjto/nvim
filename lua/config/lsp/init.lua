@@ -64,8 +64,6 @@ lsputils.clients['rust_analyzer'].setup {
     }
 }
 
-lsputils.clients['bashls'].setup {}
-
 lsputils.clients['gopls'].setup {
     cmd = {"gopls", "serve"},
     settings = {
@@ -78,11 +76,9 @@ lsputils.clients['gopls'].setup {
     },
 }
 
-
 lsputils.clients['pyright'].setup {
     on_attach = function(client, bufnr)
         lsputils.default_on_attach(client, bufnr)
-
 
         bind(
             bufnr, 'n', '<Leader>lo',
@@ -92,32 +88,6 @@ lsputils.clients['pyright'].setup {
     end
 }
 
-lsputils.clients['graphql'].setup {}
-
-lsputils.clients['terraformls'].setup {}
-
 lsputils.clients['tsserver'].setup {
     root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
 }
-
-lsputils.clients['yamlls'].setup {
-    settings = {
-        yaml = {
-            validate = false
-        }
-    }
-}
-
-
-local lsp_installer = require("nvim-lsp-installer")
-
-lsp_installer.settings({
-    ui = {
-        icons = {
-            server_installed = "◍",
-            server_pending = "◍",
-            server_uninstalled = "◍"
-        }
-    }
-})
-
