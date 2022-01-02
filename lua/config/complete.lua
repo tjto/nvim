@@ -80,4 +80,9 @@ cmp.setup {
             return vim_item
         end,
     },
+
+    completion = {
+        autocomplete = true,
+        keyword_length = 3,
+    },
 }

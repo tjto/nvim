@@ -18,6 +18,7 @@ use 'tpope/vim-surround'
 use 'tpope/vim-repeat'
 use 'tpope/vim-unimpaired'
 use 'tpope/vim-endwise'
+use 'tpope/vim-eunuch'
 
 -- Tabline
 use {'romgrk/barbar.nvim', requires = {'kyazdani42/nvim-web-devicons'}}
@@ -38,10 +39,8 @@ use 'b3nj5m1n/kommentary'
 use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-
 -- Better quickfix window
 use 'kevinhwang91/nvim-bqf'
-
 
 -- Project management
 use 'ahmedkhalf/project.nvim'
@@ -59,6 +58,7 @@ use 'NLKNguyen/papercolor-theme'
 use 'tomasiser/vim-code-dark'
 use 'preservim/vim-colors-pencil'
 use 'sainnhe/sonokai'
+use 'rebelot/kanagawa.nvim'
 
 -- Which Key
 use { 'folke/which-key.nvim' }
@@ -73,10 +73,9 @@ use {
   requires = {'kyazdani42/nvim-web-devicons'}
 }
 
-
 use {
     'ojroques/nvim-hardline',
-    config = function() 
+    config = function()
         require('hardline').setup {}
     end
 }
@@ -101,7 +100,6 @@ use {
         'saadparwaiz1/cmp_luasnip',
     }
 }
-
 
 use {
     'kyazdani42/nvim-tree.lua',

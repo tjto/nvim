@@ -91,3 +91,17 @@ lsputils.clients['pyright'].setup {
 lsputils.clients['tsserver'].setup {
     root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
 }
+
+lsputils.clients['ccls'].setup {
+    root_dir = util.root_pattern(".ccls", "compile_commands.json", ".git"),
+    init_options = {
+        compilationDatabaseDirectory = "build";
+        index = {
+            threads = 0;
+        };
+        clang = {
+            extraArgs = { "-std=c++17" };
+            excludeArgs = { "-frounding-math" } ;
+        };
+    }
+}
