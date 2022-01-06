@@ -18,8 +18,6 @@ function _G.load_post_plugin_config()
     require('config')
 end
 
-
-
 -- If Packer is not installed, download it and all plugins and reload config
 -- If Packer is installed, load configuration as usual
 local packer_install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -45,3 +43,4 @@ end
 
 vim.g.python3_host_prog="/Users/tungbui/.asdf/shims/python3"
 vim.g.go_gopls_enabled = 0
+vim.g.rustfmt_autosave=1

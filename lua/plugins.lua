@@ -59,6 +59,7 @@ use 'tomasiser/vim-code-dark'
 use 'preservim/vim-colors-pencil'
 use 'sainnhe/sonokai'
 use 'rebelot/kanagawa.nvim'
+use 'catppuccin/nvim'
 
 -- Which Key
 use { 'folke/which-key.nvim' }
@@ -113,3 +114,5 @@ use {'wakatime/vim-wakatime'}
 use {'lukas-reineke/indent-blankline.nvim', requires = {'Yggdroot/indentLine'}}
 
 use { 'cappyzawa/trim.nvim' }
+
+use { 'rust-lang/rust'}
