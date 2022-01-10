@@ -85,7 +85,14 @@ lsputils.clients['pyright'].setup {
             '<cmd>PyrightOrganizeImports<CR>',
             { noremap = true, silent = true }
         )
-    end
+    end,
+    settings = {
+        python = {
+            analysis = {
+                extraPaths = {"."}
+            }
+        }
+    }
 }
 
 lsputils.clients['tsserver'].setup {
