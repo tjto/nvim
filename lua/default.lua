@@ -143,7 +143,6 @@ utils.create_augroup({
     { 'BufReadPost', '*', 'lua require("utility").RestoreCursor()' }
 }, 'RestoreCursorOnOpen')
 
-
 utils.create_augroup({
     { 'BufWritePre', '*', 'lua require("utility").create_file_directory_structure()' }
 }, 'MkdirOnSave')
@@ -157,7 +156,10 @@ utils.create_augroup({
 }, 'yaml-file-type')
 
 utils.create_augroup({
-    {'FileType', 'yaml', 'setlocal', 'ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>'}, 
+    {'FileType', 'yaml', 'setlocal', 'ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>'},
     {'BufNewFile,BufReadPost', '*.{yaml,yml}', 'set', 'filetype=yaml foldmethod=indent'}
 }, 'yaml-file-type')
 
+utils.create_augroup({
+	{'FileType', 'cpp', 'setlocal', 'ts=2 sts=2 sw=2 noexpandtab indentkeys-=0# indentkeys-=<:>'}
+}, 'cpp-filetype')

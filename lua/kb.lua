@@ -1,4 +1,3 @@
-
 local bind = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
@@ -19,6 +18,8 @@ bind('v', '<S-Tab>', '<', {})
 -- Quit
 bind('n', '<Leader>q', ':quitall<CR>', opts)
 bind('n', '<Leader>Q', ':quitall!<CR>', opts)
+
+bind("n", "<Leader>=", ":lua vim.lsp.buf.formatting()<CR>", opts)
 
 -- Window keybinds
 -- Goto window number

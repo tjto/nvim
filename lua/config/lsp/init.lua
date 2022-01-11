@@ -99,16 +99,30 @@ lsputils.clients['tsserver'].setup {
     root_dir = util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")
 }
 
-lsputils.clients['ccls'].setup {
-    root_dir = util.root_pattern(".ccls", "compile_commands.json", ".git"),
+-- lsputils.clients['ccls'].setup {
+--     root_dir = util.root_pattern(".ccls", "compile_commands.json", ".git"),
+--     init_options = {
+--         compilationDatabaseDirectory = "build";
+--         index = {
+--             threads = 0;
+--         };
+--         clang = {
+--             extraArgs = { "-std=c++17" };
+--             excludeArgs = { "-frounding-math" } ;
+--         };
+--     }
+-- }
+
+lsputils.clients['clangd'].setup{
+    cmd = {
+        "/Users/tungbui/.local/share/nvim/lsp_servers/clangd/clangd/bin/clangd",
+        "--background-index",
+        "--suggest-missing-includes",
+        '--query-driver="/usr/local/opt/gcc-arm-none-eabi-8-2019-q3-update/bin/arm-none-eabi-gcc"'
+    },
     init_options = {
-        compilationDatabaseDirectory = "build";
-        index = {
-            threads = 0;
-        };
-        clang = {
-            extraArgs = { "-std=c++17" };
-            excludeArgs = { "-frounding-math" } ;
-        };
-    }
+        compilationDatabasePath="cmake-build",
+    },
+    filetypes = {"c", "cpp", "objc", "objcpp"},
+    root_dir = util.root_pattern("compile_flags.txt", "compile_commands.json", ".git") or dirname,
 }

@@ -109,10 +109,17 @@ use {
 
 use { 'williamboman/nvim-lsp-installer'}
 
-use {'wakatime/vim-wakatime'}
+-- use {'wakatime/vim-wakatime'}
 
 use {'lukas-reineke/indent-blankline.nvim', requires = {'Yggdroot/indentLine'}}
 
 use { 'cappyzawa/trim.nvim' }
 
 use { 'rust-lang/rust'}
+
+use {
+    "ellisonleao/glow.nvim",
+    config=function()
+        require('glow').setup {}
+    end
+}
