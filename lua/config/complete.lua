@@ -22,15 +22,15 @@ cmp.setup {
     },
 
     mapping = {
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         ['<C-e>'] = cmp.mapping.close(),
         ['<CR>'] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         }),
-        ['<Tab>'] = cmp.mapping(
+        ['<Tab>'] = cmp.mapping(cmp.mapping(
             function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
@@ -41,10 +41,11 @@ cmp.setup {
                 else
                     fallback()
                 end
-            end, { "i", "s" }
+            end
+            ), { "i", "s" }
         ),
 
-        ['<S-Tab>'] = cmp.mapping(
+        ['<S-Tab>'] = cmp.mapping(cmp.mapping(
             function()
                 if cmp.visible() then
                     cmp.select_prev_item()
@@ -53,7 +54,8 @@ cmp.setup {
                 else
                     fallback()
                 end
-            end, { 'i', 's' }
+            end
+            ), { 'i', 's' }
         ),
     },
 

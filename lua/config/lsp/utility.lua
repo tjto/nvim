@@ -34,11 +34,18 @@ function M.default_on_attach(client, bufnr)
     )
     buf_set_keymap('n', '<Leader>lD', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-    buf_set_keymap('n', '<C-Space>',
-        '<cmd>lua vim.diagnostic.open_float()<CR>',
+    buf_set_keymap('n', '<Leader>lds',
+        '<cmd>lua vim.diagnostic.open_float({ nil, { focus = "false" }})<CR>',
         opts
     )
-
+    buf_set_keymap('n', '<Leader>ldd',
+        '<cmd>lua vim.diagnostic.setloclist({ nil, { focus = "false" }})<CR>',
+        opts
+    )
+    buf_set_keymap('n', '<Leader>ldw',
+        '<cmd>lua vim.diagnostic.setqflist({ nil, { focus = "false" }})<CR>',
+        opts
+    )
     buf_set_keymap('n', ']g',
         '<cmd>lua vim.diagnostic.goto_next({ popup_opts = { border = "single" }})<CR>',
         opts
@@ -47,7 +54,6 @@ function M.default_on_attach(client, bufnr)
         '<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { border = "single" }})<CR>',
         opts
     )
-    buf_set_keymap('n', '<Leader>lds', '<C-Space>', { silent = true })
     buf_set_keymap('n', '<Leader>ldn', ']g', { silent = true })
     buf_set_keymap('n', '<Leader>ldp', '[g', { silent = true })
 
@@ -86,6 +92,8 @@ function M.default_on_attach(client, bufnr)
                 s = 'Show line diagnostics',
                 p = 'Goto prev',
                 n = 'Goto next',
+                d = 'loclist',
+                w = 'qflist'
             },
             c = 'Code Actions',
             w = {
