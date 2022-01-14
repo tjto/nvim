@@ -18,10 +18,11 @@ lsp.handlers["textDocument/publishDiagnostics"] = lsp.with(
     lsp.diagnostic.on_publish_diagnostics,
     {
         underline = true,
-        virtual_text = {
-            spacing = 4,
-            prefix = '~',
-        },
+        -- virtual_text = {
+        --     spacing = 4,
+        --     prefix = '~',
+        -- },
+        virtual_text = false,
         signs = {
             -- Use a function to dynamically turn signs off
             -- and on, using buffer local variables

@@ -35,7 +35,7 @@ function M.default_on_attach(client, bufnr)
     buf_set_keymap('n', '<Leader>lD', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     buf_set_keymap('n', '<Leader>lr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     buf_set_keymap('n', '<C-Space>',
-        '<cmd>lua vim.diagnostic.open_float({ source = "always" })<CR>',
+        '<cmd>lua vim.diagnostic.open_float()<CR>',
         opts
     )
 
@@ -71,8 +71,6 @@ function M.default_on_attach(client, bufnr)
     -- Telescope LSP
     buf_bind_picker('<Leader>lsd', 'lsp_document_symbols')
     buf_bind_picker('<Leader>lsw', 'lsp_workspace_symbols')
-    buf_bind_picker('<Leader>ldd', 'lsp_document_diagnostics')
-    buf_bind_picker('<Leader>ldw', 'lsp_workspace_diagnostics')
     buf_bind_picker('<Leader>lc', 'lsp_code_actions')
 
     local keys = {
@@ -88,8 +86,6 @@ function M.default_on_attach(client, bufnr)
                 s = 'Show line diagnostics',
                 p = 'Goto prev',
                 n = 'Goto next',
-                d = 'Document Diagnostics',
-                w = 'Workspace Diagnostics'
             },
             c = 'Code Actions',
             w = {
