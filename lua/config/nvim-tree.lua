@@ -2,7 +2,6 @@ local bind = vim.api.nvim_set_keymap
 local wk = require('which-key')
 local opts = { noremap = true, silent = true }
 
-
 require('nvim-tree').setup {
   disable_netrw       = true,
   hijack_netrw        = true,

@@ -117,9 +117,8 @@ use { 'cappyzawa/trim.nvim' }
 
 use { 'rust-lang/rust'}
 
-use {
-    "ellisonleao/glow.nvim",
-    config=function()
-        require('glow').setup {}
-    end
-}
+-- use { 'ellisonleao/glow.nvim',
+--     config = function()
+--         require('hardline').setup {}
+--     end
+-- }
