@@ -153,7 +153,7 @@ utils.create_augroup({
 
 utils.create_augroup({
     {'FileType', 'go', 'setlocal', 'ts=8 sts=8 sw=8 noexpandtab indentkeys-=0# indentkeys-=<:>'}
-}, 'yaml-file-type')
+}, 'go-file-type')
 
 utils.create_augroup({
     {'FileType', 'yaml', 'setlocal', 'ts=2 sts=2 sw=2 expandtab indentkeys-=0# indentkeys-=<:>'},
@@ -163,3 +163,12 @@ utils.create_augroup({
 utils.create_augroup({
 	{'FileType', 'cpp', 'setlocal', 'ts=2 sts=2 sw=2 noexpandtab indentkeys-=0# indentkeys-=<:>'}
 }, 'cpp-filetype')
+
+utils.create_augroup({
+    { 'BufWritePre', '*', 'undojoin | Neoformat' }
+}, 'neoformat-on-save')
+
+g.neoformat_enabled_python = {'autopep8', 'yapf', 'docformatter'}
+g.neoformat_basic_format_align = 1
+g.neoformat_basic_format_retab = 1
+g.neoformat_basic_format_trim = 1

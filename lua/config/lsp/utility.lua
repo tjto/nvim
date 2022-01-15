@@ -151,7 +151,7 @@ function M.default_on_attach(client, bufnr)
         bind = true,
         floating_window = true,
         hint_enable = true,
-        hint_prefix = "-> ",
+        hint_prefix = "🐼 ",
         hint_scheme = "String",
         use_lspsaga = false,
         hi_parameter = "Search",

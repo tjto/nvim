@@ -122,3 +122,5 @@ use { 'rust-lang/rust'}
 --         require('hardline').setup {}
 --     end
 -- }
+--
+use 'sbdchd/neoformat'
