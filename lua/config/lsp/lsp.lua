@@ -9,7 +9,10 @@ lsp.handlers["textDocument/hover"] = lsp.with(
 
 lsp.handlers["textDocument/signatureHelp"] = lsp.with(
     lsp.handlers.signature_help,
-    { border = "single" }
+    {
+        border = "rounded",
+        close_events = {"CursorMoved", "BufHidden", "InsertCharPre"},
+    }
 )
 
 -- Diagnostics configuration

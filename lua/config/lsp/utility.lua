@@ -147,16 +147,16 @@ function M.default_on_attach(client, bufnr)
     wk.register(visual_keys, { prefix = '<leader>', mode = 'v', buffer = bufnr })
 
     -- LSP Signatures
-    require('lsp_signature').on_attach({
+    require('lsp_signature').setup({
         bind = true,
-        floating_window = true,
+        floating_window = false,
         hint_enable = true,
         hint_prefix = "🐼 ",
         hint_scheme = "String",
         use_lspsaga = false,
         hi_parameter = "Search",
         handler_opts = {
-            border = "single"
+            border = "rounded"
         },
     })
 end
