@@ -165,7 +165,7 @@ utils.create_augroup({
 }, 'cpp-filetype')
 
 utils.create_augroup({
-    { 'BufWritePre', '*', 'undojoin | Neoformat' }
+    { 'BufWritePre', '*', "try | undojoin | Neoformat | catch /^Vim\\%((\\a\\+)\\)\\=:E790/ | finally | silent Neoformat | endtry" }
 }, 'neoformat-on-save')
 
 g.neoformat_enabled_python = {'autopep8', 'yapf', 'docformatter'}
