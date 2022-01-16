@@ -124,3 +124,5 @@ use { 'rust-lang/rust'}
 -- }
 --
 use 'sbdchd/neoformat'
+
+use 'fatih/vim-go' 
