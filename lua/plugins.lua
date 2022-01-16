@@ -60,6 +60,7 @@ use 'preservim/vim-colors-pencil'
 use 'sainnhe/sonokai'
 use 'rebelot/kanagawa.nvim'
 use 'catppuccin/nvim'
+use 'cocopon/iceberg.vim'
 
 -- Which Key
 use { 'folke/which-key.nvim' }
@@ -125,4 +126,4 @@ use { 'rust-lang/rust'}
 --
 use 'sbdchd/neoformat'
 
-use 'fatih/vim-go' 
+use 'fatih/vim-go'

@@ -118,6 +118,8 @@ opt.sidescrolloff = 5
 -- Clipboard
 opt.clipboard = {'unnamed', 'unnamedplus'}
 
+cmd 'set noswapfile'
+
 -- Disable using netrw for 'gx' and set it manually
 g.netrw_nogx = 1
 bind('n', 'gx', '<cmd>!xdg-open <cfile><CR>', { noremap = true })
