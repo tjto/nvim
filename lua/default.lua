@@ -166,12 +166,12 @@ utils.create_augroup({
 	{'FileType', 'cpp', 'setlocal', 'ts=2 sts=2 sw=2 noexpandtab indentkeys-=0# indentkeys-=<:>'}
 }, 'cpp-filetype')
 
-utils.create_augroup({
-    { 'BufWritePre', '*', "try | undojoin | Neoformat | catch /^Vim\\%((\\a\\+)\\)\\=:E790/ | finally | silent Neoformat | endtry" }
-}, 'neoformat-on-save')
+-- utils.create_augroup({
+--     { 'BufWritePre', '*', "try | undojoin | Neoformat | catch /^Vim\\%((\\a\\+)\\)\\=:E790/ | finally | silent Neoformat | endtry" }
+-- }, 'neoformat-on-save')
 
-g.neoformat_enabled_python = {'autopep8', 'yapf', 'docformatter'}
-g.neoformat_basic_format_align = 1
-g.neoformat_basic_format_retab = 1
-g.neoformat_basic_format_trim = 1
+-- g.neoformat_enabled_python = {'autopep8', 'yapf', 'docformatter'}
+-- g.neoformat_basic_format_align = 1
+-- g.neoformat_basic_format_retab = 1
+-- g.neoformat_basic_format_trim = 1
 g.go_gopls_enabled = 0

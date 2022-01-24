@@ -1,28 +1,6 @@
 -- Tree-sitter
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        'c',
-        'cpp',
-        -- 'python',
-        'gdscript',
-        'rust',
-        'bash',
-        'lua',
-        'toml',
-        'latex',
-        'dockerfile',
-        'go',
-        'gomod',
-        'graphql',
-        'hcl',
-        'java',
-        'json',
-        'kotlin',
-        'tsx',
-        'typescript',
-        'yaml',
-        'vim'
-    },
+    ensure_installed = "maintained",
     highlight = {
         enable = true,
         disable = {"python"},
@@ -39,23 +17,22 @@ require'nvim-treesitter.configs'.setup {
     indent = {
         enable = true
     },
-    textobjects = {
-        select = {
-            enable = true,
-            keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
+    -- textobjects = {
+    --     select = {
+    --         enable = true,
+    --         keymaps = {
+    --             ["af"] = "@function.outer",
+    --             ["if"] = "@function.inner",
+    --             ["ac"] = "@class.outer",
+    --             ["ic"] = "@class.inner",
 
-                ["iF"] = {
-                    python = "(function_definition) @function",
-                    cpp = "(function_definition) @function",
-                    c = "(function_definition) @function",
-                    java = "(method_declaration) @function",
-                },
-            },
-        },
-    },
+    --             ["iF"] = {
+    --                 python = "(function_definition) @function",
+    --                 cpp = "(function_definition) @function",
+    --                 c = "(function_definition) @function",
+    --                 java = "(method_declaration) @function",
+    --             },
+    --         },
+    --     },
+    -- },
 }
-
