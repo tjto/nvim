@@ -1,5 +1,5 @@
 -- Set background color
-vim.opt.background = 'light'
+vim.opt.background = 'dark'
 
 -- Set colorscheme
 -- vim.cmd('colorscheme PaperColor')

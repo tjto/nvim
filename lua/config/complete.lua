@@ -77,7 +77,6 @@ cmp.setup {
         end,
     },
     completion = {
-        keyword_length = 2,
     },
 
 }

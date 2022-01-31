@@ -110,7 +110,7 @@ use {
 
 use { 'williamboman/nvim-lsp-installer'}
 
--- use {'wakatime/vim-wakatime'}
+use {'wakatime/vim-wakatime'}
 
 use {'lukas-reineke/indent-blankline.nvim', requires = {'Yggdroot/indentLine'}}
 
