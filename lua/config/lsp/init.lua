@@ -36,6 +36,10 @@ local bind = vim.api.nvim_buf_set_keymap
 local lsputils = require('config.lsp.utility')
 
 lsputils.clients['rust_analyzer'].setup {
+    cmd = {
+        "/Users/tung.bui/.local/share/nvim/lsp_servers/rust/rust-analyzer"
+    },
+
     on_attach = function(client, bufnr)
         lsputils.default_on_attach(client, bufnr)
 
@@ -115,7 +119,7 @@ lsputils.clients['tsserver'].setup {
 
 lsputils.clients['clangd'].setup{
     cmd = {
-        "/Users/tungbui/.local/share/nvim/lsp_servers/clangd/clangd/bin/clangd",
+        "/Users/tung.bui/.local/share/nvim/lsp_servers/clangd/clangd/bin/clangd",
         "--background-index",
         "--suggest-missing-includes",
         '--query-driver="/usr/local/opt/gcc-arm-none-eabi-8-2019-q3-update/bin/arm-none-eabi-gcc"'
