@@ -1,6 +1,7 @@
 -- Tree-sitter
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained",
+    ensure_installed = "all",
+    ignore_install = { "php", "phpdoc" },
     highlight = {
         enable = true,
         disable = {"python"},
