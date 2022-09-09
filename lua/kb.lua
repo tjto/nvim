@@ -114,4 +114,4 @@ local keys = {
     }
 }
 
-require('which-key').register(keys, { prefix = "<leader>" })
+-- require('which-key').register(keys, { prefix = "<leader>" })
