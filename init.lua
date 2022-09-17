@@ -15,6 +15,7 @@ function _G.load_post_plugin_config()
     require('plugins')
     require('ui')
     require('kb')
+    require('config')
 end
 
 -- If Packer is not installed, download it and all plugins and reload config
