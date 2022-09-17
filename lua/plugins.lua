@@ -28,3 +28,11 @@ use 'sainnhe/sonokai'
 use 'rebelot/kanagawa.nvim'
 use 'catppuccin/nvim'
 use 'cocopon/iceberg.vim'
+
+-- some candy stuff
+use 'feline-nvim/feline.nvim'
+use 'kyazdani42/nvim-web-devicons'
+use {
+  'lewis6991/gitsigns.nvim',
+}
+
