@@ -64,6 +64,7 @@ opt.autoindent = true
 opt.smartindent = true
 
 -- Listchars
+opt.list = true
 opt.listchars = {tab = '▸ ', trail = '-', extends = '❯', precedes = '❮', nbsp = '+', space = '.', eol = '¬'}
 
 -- Linebreak and wrap behavior
