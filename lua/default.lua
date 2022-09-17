@@ -98,7 +98,7 @@ opt.gdefault = true
 opt.inccommand = 'nosplit'
 
 -- Completion
-opt.completeopt = {'menuone', 'preview', 'noselect'}
+opt.completeopt = {'menu', 'menuone', 'preview', 'noselect'}
 opt.shortmess:append('c')
 
 -- Split options
