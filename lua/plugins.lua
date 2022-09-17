@@ -63,7 +63,11 @@ use {
     requires = { {'nvim-telescope/telescope.nvim'} },
 }
 
-
+-- which-key
 use {
   "folke/which-key.nvim",
 }
+
+-- completion
+use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
+
