@@ -62,3 +62,8 @@ use {
     'nvim-telescope/telescope-fzy-native.nvim',
     requires = { {'nvim-telescope/telescope.nvim'} },
 }
+
+
+use {
+  "folke/which-key.nvim",
+}
