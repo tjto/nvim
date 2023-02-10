@@ -1,9 +1,7 @@
--- nvim-cmp configuration
 local api = vim.api
 local fn = vim.fn
 local cmp = require('cmp')
-local lspkind = require('lspkind')
-local luasnip = require('luasnip')
+
 
 local has_words_before = function()
     local line, col = unpack(api.nvim_win_get_cursor(0))
@@ -14,13 +12,21 @@ local feedkey = function(key, mode)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-cmp.setup {
+cmp.setup({
+    enabled = function()
+        local context = require 'cmp.config.context'
+        if vim.api.nvim_get_mode().mode == 'c' then
+            return true
+        else
+            return not context.in_treesitter_capture("comment") 
+                and not context.in_syntax_group("Comment")
+        end
+    end,
     snippet = {
         expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        end,
     },
-
     mapping = {
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
@@ -41,7 +47,6 @@ cmp.setup {
                 fallback()
             end
         end, { "i", "s" }),
-
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -52,31 +57,12 @@ cmp.setup {
             end
         end, { "i", "s" }),
     },
-
     sources = {
         { name = 'path' },
         { name = 'nvim_lsp' },
         { name = 'buffer'},
         { name = 'nvim_lua' },
-        { name = 'luasnip' },
+        { name = 'vsnip' },
         { name = 'calc' }
     },
-
-    formatting = {
-        format = function(entry, vim_item)
-            vim_item.kind = lspkind.presets.default[vim_item.kind]
-            vim_item.menu = ({
-                buffer = "[Buffer]",
-                path = "[Path]",
-                nvim_lsp = "[LSP]",
-                nvim_lua = "[Lua]",
-                luasnip = "[LuaSnip]",
-                calc = "[Calc]",
-            })[entry.source.name]
-            return vim_item
-        end,
-    },
-    completion = {
-    },
-
-}
+})

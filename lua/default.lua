@@ -64,6 +64,7 @@ opt.autoindent = true
 opt.smartindent = true
 
 -- Listchars
+opt.list = true
 opt.listchars = {tab = '▸ ', trail = '-', extends = '❯', precedes = '❮', nbsp = '+', space = '.', eol = '¬'}
 
 -- Linebreak and wrap behavior
@@ -97,7 +98,7 @@ opt.gdefault = true
 opt.inccommand = 'nosplit'
 
 -- Completion
-opt.completeopt = {'menuone', 'preview', 'noselect'}
+opt.completeopt = {'menu', 'menuone', 'preview', 'noselect'}
 opt.shortmess:append('c')
 
 -- Split options
