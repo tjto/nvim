@@ -111,3 +111,5 @@ use {
         }
     end
 }
+
+use 'fatih/vim-go'
