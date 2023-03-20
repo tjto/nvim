@@ -1,7 +1,7 @@
 local lspconfig = require('lspconfig')
 local util = require('lspconfig/util')
 
-lspconfig.sumneko_lua.setup({})
+lspconfig.lua_ls.setup({})
 
 lspconfig.gopls.setup {
     cmd = {'gopls', 'serve'},

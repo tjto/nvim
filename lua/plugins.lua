@@ -97,7 +97,6 @@ use {
     config = function()
         require("mason-lspconfig").setup {
             ensure_installed = { 
-                "sumneko_lua", 
                 "ansiblels",
                 "bashls",
                 "clangd",
