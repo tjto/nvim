@@ -3,6 +3,30 @@ local util = require('lspconfig/util')
 
 lspconfig.lua_ls.setup({})
 
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+require("mason-lspconfig").setup {
+    ensure_installed = { 
+        "ansiblels",
+        "bashls",
+        "clangd",
+        "gopls",
+        "graphql",
+        "html",
+        "jsonls",
+        "terraformls",
+        "yamlls"
+    },
+}
+
+
 lspconfig.gopls.setup {
     cmd = {'gopls', 'serve'},
     filetypes = {'go', 'gomod'},

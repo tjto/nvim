@@ -14,6 +14,7 @@ use 'wbthomason/packer.nvim'
 
 -- eyecandy
 use 'cocopon/iceberg.vim'
+use { "catppuccin/nvim", as = "catppuccin" }
 use 'kyazdani42/nvim-web-devicons'
 use {
     'lewis6991/gitsigns.nvim',
@@ -38,6 +39,9 @@ use {
             space_char_blankline = " ",
         }
     end
+}
+use {
+    "tomtom/tcomment_vim"
 }
 
 -- treesitter
@@ -80,35 +84,10 @@ use 'saadparwaiz1/cmp_luasnip'
 use 'rafamadriz/friendly-snippets'
 use { 
     'williamboman/mason.nvim',
-    config = function ()
-        require("mason").setup({
-            ui = {
-                icons = {
-                    package_installed = "✓",
-                    package_pending = "➜",
-                    package_uninstalled = "✗"
-                }
-            }
-        })
-    end
 }
 use {
     'williamboman/mason-lspconfig.nvim',
-    config = function()
-        require("mason-lspconfig").setup {
-            ensure_installed = { 
-                "ansiblels",
-                "bashls",
-                "clangd",
-                "gopls",
-                "graphql",
-                "html",
-                "jsonls",
-                "terraformls",
-                "yamlls"
-            },
-        }
-    end
+    requires= { { 'williamboman/mason.nvim' } }
 }
 
 use 'fatih/vim-go'
