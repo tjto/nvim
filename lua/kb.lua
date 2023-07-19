@@ -64,6 +64,12 @@ bind('n', '<Leader>wq', ':wincmd q<CR>', opts)
 bind('n', '<Leader>ws', ':wincmd s<CR>', opts)
 bind('n', '<Leader>wv', ':wincmd v<CR>', opts)
 
+-- Change dir to current dir of openning file
+bind('n', '<Leader>cd', ':cd %:p:h<CR>', opts)
+
+-- Toggle nvimtree
+bind('n', '<Leader>tt', ':NvimTreeToggle<CR>', opts)
+
 local keys = {
     q = 'Quit all',
     Q = 'Quit all without save',
@@ -106,6 +112,10 @@ local keys = {
         q = 'Delete window',
         s = 'Split horizontally',
         v = 'Split vertically',
+    },
+    t = {
+        name = '+tree',
+        t = 'Toggle tree'
     },
     v = {
         name = '+vim',

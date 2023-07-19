@@ -40,8 +40,16 @@ use {
         }
     end
 }
+
 use {
     "tomtom/tcomment_vim"
+}
+
+use {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+        require("nvim-tree").setup {}
+    end
 }
 
 -- treesitter
