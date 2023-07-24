@@ -19,6 +19,10 @@ use 'kyazdani42/nvim-web-devicons'
 use {
     'lewis6991/gitsigns.nvim',
 }
+use {
+    'f-person/git-blame.nvim',
+}
+
 use 'feline-nvim/feline.nvim'
 use {
     'romgrk/barbar.nvim', 
