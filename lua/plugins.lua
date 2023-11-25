@@ -12,6 +12,15 @@ packer.init {
 -- Packer
 use 'wbthomason/packer.nvim'
 
+use 'wakatime/vim-wakatime'
+use { 
+    "iamcco/markdown-preview.nvim", 
+    run = "cd app && npm install", 
+    setup = function() 
+        vim.g.mkdp_filetypes = { "markdown" } 
+    end, 
+    ft = { "markdown" }, 
+}
 -- eyecandy
 use 'cocopon/iceberg.vim'
 use { "catppuccin/nvim", as = "catppuccin" }
@@ -23,7 +32,6 @@ use {
     'f-person/git-blame.nvim',
 }
 
-use 'feline-nvim/feline.nvim'
 use {
     'romgrk/barbar.nvim', 
     requires = {'kyazdani42/nvim-web-devicons'},
@@ -34,15 +42,7 @@ use {
 }
 
 use {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function() 
-        require("indent_blankline").setup {
-            show_current_context = true,
-            show_current_context_start = true,
-            show_end_of_line = true,
-            space_char_blankline = " ",
-        }
-    end
+    "lukas-reineke/indent-blankline.nvim", main = "ibl", opt = {}
 }
 
 use {
@@ -71,7 +71,7 @@ use {
 -- telescope
 use "nvim-lua/plenary.nvim"
 use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
     requires = { {'nvim-lua/plenary.nvim'} },
 }
 use {
@@ -102,4 +102,20 @@ use {
     requires= { { 'williamboman/mason.nvim' } }
 }
 
+use {
+    'hashivim/vim-terraform'
+}
+
 use 'fatih/vim-go'
+
+-- use 'olexsmir/gopher.nvim'
+
+use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+})

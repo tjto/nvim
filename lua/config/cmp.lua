@@ -41,6 +41,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Selects a code action available at the current cursor position
         bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
         bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
+        bufmap('n', '<space>f', '<cmd>lua vim.lsp.buf.format { async=true }<CR>')
 
         -- Show diagnostics in a floating window
         bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
@@ -174,4 +175,14 @@ vim.diagnostic.config({
     header = '',
     prefix = '',
   },
+})
+
+
+vim.api.nvim_create_augroup('AutoFormatting', {})
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.go',
+  group = 'AutoFormatting',
+  callback = function()
+        vim.lsp.buf.format({ async = false })
+  end,
 })

@@ -14,6 +14,8 @@ require("mason").setup({
 })
 require("mason-lspconfig").setup {
     ensure_installed = { 
+        "pyright",
+        "lua_ls",
         "ansiblels",
         "bashls",
         "clangd",
@@ -22,7 +24,8 @@ require("mason-lspconfig").setup {
         "html",
         "jsonls",
         "terraformls",
-        "yamlls"
+        "tflint",
+        "yamlls",
     },
 }
 
@@ -33,6 +36,14 @@ lspconfig.gopls.setup {
     root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
     settings = {
         gopls = {
+            codelenses = {
+                tidy = true,
+                upgrade_dependency = true,
+                generate = false,
+                gc_details = false,
+                test = false,
+                vendor = false,
+            },
             analyses = {
                 unusedparams = true,
             },
@@ -40,6 +51,8 @@ lspconfig.gopls.setup {
         },
     },
 }
+
+lspconfig.pyright.setup {}
 
 function go_org_imports(wait_ms)
     local params = vim.lsp.util.make_range_params()
@@ -55,4 +68,29 @@ function go_org_imports(wait_ms)
     end
 end
 
-vim.cmd('autocmd BufWritePre *.go lua go_org_imports()')
+lspconfig.terraformls.setup{}
+
+vim.cmd('autocmd BufWritePre *.go lua go_org_imports(1000)')
+-- vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
+-- vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
+-- vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
+-- vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
+-- vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
+-- -- vim.cmd([[let g:terraform_fmt_on_save=1]])
+-- vim.cmd([[let g:terraform_align=1]])
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--   pattern = {"*.tf", "*.tfvars"},
+--   callback = vim.lsp.buf.formatting_sync(),
+-- })
+--
+--
+--
+-- require("gopher").setup {
+--   commands = {
+--     go = "go",
+--     gomodifytags = "gomodifytags",
+--     gotests = "~/go/bin/gotests", -- also you can set custom command path
+--     impl = "impl",
+--     iferr = "iferr",
+--   },
+-- }

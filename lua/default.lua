@@ -155,7 +155,7 @@ utils.create_augroup({
 }, 'json-file-type')
 
 utils.create_augroup({
-    {'FileType', 'go', 'setlocal', 'ts=8 sts=8 sw=8 noexpandtab indentkeys-=0# indentkeys-=<:>'}
+    {'FileType', 'go', 'setlocal', 'ts=8 sts=0 sw=8 noexpandtab indentkeys-=0# indentkeys-=<:>'}
 }, 'go-file-type')
 
 utils.create_augroup({
