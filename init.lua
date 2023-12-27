@@ -44,5 +44,5 @@ end
 
 vim.g.python_host_prog="~/.asdf/shims/python"
 vim.g.python3_host_prog="~/.asdf/shims/python3"
-vim.g.go_gopls_enabled = 0
+-- vim.g.go_gopls_enabled = 0
 vim.g.rustfmt_autosave=1

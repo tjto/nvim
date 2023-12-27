@@ -4,6 +4,13 @@ local utils = require('../utility')
 
 lspconfig.lua_ls.setup({})
 
+require "lsp_signature".setup({
+    bind = true, -- This is mandatory, otherwise border config won't get registered.
+    handler_opts = {
+        border = "rounded"
+    }
+})
+
 require("mason").setup({
     ui = {
         icons = {
@@ -53,23 +60,34 @@ lspconfig.gopls.setup {
     },
 }
 
-function go_org_imports(wait_ms)
-    local params = vim.lsp.util.make_range_params()
-    params.context = {only = {"source.organizeImports"}}
-    local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
-    for cid, res in pairs(result or {}) do
-        for _, r in pairs(res.result or {}) do
-            if r.edit then
-                local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-                vim.lsp.util.apply_workspace_edit(r.edit, enc)
-            end
-        end
-    end
-end
+
+require('go').setup()
+local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+   require('go.format').goimport()
+  end,
+  group = format_sync_grp,
+})
+
+-- function go_org_imports(wait_ms)
+--     local params = vim.lsp.util.make_range_params()
+--     params.context = {only = {"source.organizeImports"}}
+--     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+--     for cid, res in pairs(result or {}) do
+--         for _, r in pairs(res.result or {}) do
+--             if r.edit then
+--                 local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+--                 vim.lsp.util.apply_workspace_edit(r.edit, enc)
+--             end
+--         end
+--     end
+-- end
 
 lspconfig.terraformls.setup{}
 
-vim.cmd('autocmd BufWritePre *.go lua go_org_imports(1000)')
+-- vim.cmd('autocmd BufWritePre *.go lua go_org_imports(1000)')
 -- vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
 -- vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
 -- vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
@@ -135,3 +153,10 @@ require("aerial").setup({
 -- You probably also want to set a keymap to toggle aerial
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
 
+
+vim.keymap.set("n", "<leader>xx", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader>xw", function() require("trouble").toggle("workspace_diagnostics") end)
+vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document_diagnostics") end)
+vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
+vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
+vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)

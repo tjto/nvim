@@ -87,6 +87,7 @@ use {
 --- lsp
 use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 use 'hrsh7th/nvim-cmp'
+use "lukas-reineke/cmp-under-comparator"
 use 'hrsh7th/cmp-nvim-lsp'
 use 'hrsh7th/cmp-buffer'
 use 'hrsh7th/cmp-path'
@@ -103,10 +104,17 @@ use {
 }
 
 use {
+  "ray-x/lsp_signature.nvim",
+}
+
+use {
     'hashivim/vim-terraform'
 }
 
-use 'fatih/vim-go'
+-- use 'fatih/vim-go'
+
+use 'ray-x/go.nvim'
+use 'ray-x/guihua.lua' -- recommended if need floating window support
 
 -- use 'olexsmir/gopher.nvim'
 
@@ -126,3 +134,16 @@ use({
         require("aerial").setup()
     end,
 })
+
+use({
+    "folke/trouble.nvim",
+})
+
+use {
+    "VidocqH/lsp-lens.nvim"
+}
+
+use {
+    "onsails/lspkind.nvim"
+}
+
