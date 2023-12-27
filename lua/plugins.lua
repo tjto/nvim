@@ -81,7 +81,7 @@ use {
 
 -- which-key
 use {
-  "folke/which-key.nvim",
+    "folke/which-key.nvim",
 }
 
 --- lsp
@@ -118,4 +118,11 @@ use({
             -- Configuration here, or leave empty to use defaults
         })
     end
+})
+
+use({
+    "stevearc/aerial.nvim",
+    config = function()
+        require("aerial").setup()
+    end,
 })

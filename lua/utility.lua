@@ -1,6 +1,15 @@
 local M = {}
 local cmd = vim.cmd
 local buf_bind = vim.api.nvim_buf_set_keymap
+local fn = vim.fn
+
+function M.executable(name)
+  if fn.executable(name) > 0 then
+    return true
+  end
+
+  return false
+end
 
 -- Create an augroup
 function M.create_augroup(autocmds, name)
