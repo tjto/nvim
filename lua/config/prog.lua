@@ -160,3 +160,13 @@ vim.keymap.set("n", "<leader>xd", function() require("trouble").toggle("document
 vim.keymap.set("n", "<leader>xq", function() require("trouble").toggle("quickfix") end)
 vim.keymap.set("n", "<leader>xl", function() require("trouble").toggle("loclist") end)
 vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+
+
+require("nvim-dap-virtual-text").setup()
+require('dapui').setup()
+require('dap-go').setup()
+
+vim.api.nvim_set_keymap("n", "<leader>dt", ":DapUIToggle<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>db", ":DapToggleBreakpoint<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>dc", ":DapContinue<CR>", {noremap=true})
+vim.api.nvim_set_keymap("n", "<leader>dt", ":lua require('dapui').open({reset = true})<CR>", {noremap=true})

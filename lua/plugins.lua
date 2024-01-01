@@ -95,22 +95,19 @@ use 'hrsh7th/cmp-cmdline'
 use 'L3MON4D3/LuaSnip'
 use 'saadparwaiz1/cmp_luasnip'
 use 'rafamadriz/friendly-snippets'
-use { 
-    'williamboman/mason.nvim',
-}
+use 'williamboman/mason.nvim'
 use {
     'williamboman/mason-lspconfig.nvim',
     requires= { { 'williamboman/mason.nvim' } }
 }
+use 'mfussenegger/nvim-dap'
+use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+use 'leoluz/nvim-dap-go'
+use 'theHamsta/nvim-dap-virtual-text'
 
-use {
-  "ray-x/lsp_signature.nvim",
-}
+-- use "ray-x/lsp_signature.nvim"
 
-use {
-    'hashivim/vim-terraform'
-}
-
+use 'hashivim/vim-terraform'
 -- use 'fatih/vim-go'
 
 use 'ray-x/go.nvim'

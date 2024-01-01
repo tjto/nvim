@@ -109,6 +109,21 @@ local keys = {
             k = 'Move window above',
             l = 'Move window right'
         },
+        x = {
+            name = "+trouble",
+            x = "Toggle trouble",
+            w = "Toggle workspace diagnostic",
+            d = "Toggle document diagnostic",
+            q = "Toggle quickfix",
+            l = "Toggle loclist",
+        },
+        d = {
+            name = '+dap',
+            t = 'Toggle DAP UI',
+            b = 'Toggle breakpoint',
+            c = 'Continue',
+            r = 'Reset DAP UI',
+        },
         q = 'Delete window',
         s = 'Split horizontally',
         v = 'Split vertically',
