@@ -64,6 +64,13 @@ bind('n', '<Leader>wq', ':wincmd q<CR>', opts)
 bind('n', '<Leader>ws', ':wincmd s<CR>', opts)
 bind('n', '<Leader>wv', ':wincmd v<CR>', opts)
 
+bind("n", "<leader>xx", ':lua require("trouble").toggle()<CR>', opts)
+bind("n", "<leader>xw", ':lua require("trouble").toggle("workspace_diagnostics")<CR>', opts)
+bind("n", "<leader>xd", ':lua require("trouble").toggle("document_diagnostics")<CR>', opts)
+bind("n", "<leader>xq", ':lua require("trouble").toggle("quickfix")<CR>', opts)
+bind("n", "<leader>xl", ':lua require("trouble").toggle("loclist")<CR>', opts)
+bind("n", "gR", ':lua require("trouble").toggle("lsp_references")<CR>', opts)
+
 local keys = {
     q = 'Quit all',
     Q = 'Quit all without save',
@@ -114,4 +121,4 @@ local keys = {
     }
 }
 
-require('which-key').register(keys, { prefix = "<leader>" })
+-- require('which-key').register(keys, { prefix = "<leader>" })
