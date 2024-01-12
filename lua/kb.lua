@@ -80,6 +80,10 @@ bind("n", "<leader>fh", ':lua require("telescope.builtin").help_tags()<cr>', opt
 bind("n", "<leader>ft", ':lua require("telescope.builtin").treesitter()<cr>', opts)
 bind("n", "<leader>fo", ':lua require("telescope.builtin").oldfiles()<cr>', opts)
 
+
+-- Change dir to current dir of openning file
+bind('n', '<Leader>cd', ':cd %:p:h<CR>', opts)
+
 local keys = {
     q = 'Quit all',
     Q = 'Quit all without save',

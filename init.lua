@@ -30,4 +30,5 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
 
-require('kb')
+require("lsp")
+require("kb")
