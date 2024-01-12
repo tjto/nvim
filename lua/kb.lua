@@ -84,6 +84,9 @@ bind("n", "<leader>fo", ':lua require("telescope.builtin").oldfiles()<cr>', opts
 -- Change dir to current dir of openning file
 bind('n', '<Leader>cd', ':cd %:p:h<CR>', opts)
 
+-- ariel
+vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+
 local keys = {
     q = 'Quit all',
     Q = 'Quit all without save',
