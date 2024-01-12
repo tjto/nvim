@@ -42,6 +42,11 @@ return {
             "nvim-treesitter/nvim-treesitter"
         },
     },
+    {
+        "m-demare/hlargs.nvim",
+        requires = { 'nvim-treesitter/nvim-treesitter' },
+        opts = {},
+    }
 }
 
 
