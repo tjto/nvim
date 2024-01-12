@@ -64,12 +64,21 @@ bind('n', '<Leader>wq', ':wincmd q<CR>', opts)
 bind('n', '<Leader>ws', ':wincmd s<CR>', opts)
 bind('n', '<Leader>wv', ':wincmd v<CR>', opts)
 
+-- Trouble
 bind("n", "<leader>xx", ':lua require("trouble").toggle()<CR>', opts)
 bind("n", "<leader>xw", ':lua require("trouble").toggle("workspace_diagnostics")<CR>', opts)
 bind("n", "<leader>xd", ':lua require("trouble").toggle("document_diagnostics")<CR>', opts)
 bind("n", "<leader>xq", ':lua require("trouble").toggle("quickfix")<CR>', opts)
 bind("n", "<leader>xl", ':lua require("trouble").toggle("loclist")<CR>', opts)
 bind("n", "gR", ':lua require("trouble").toggle("lsp_references")<CR>', opts)
+
+-- telescope
+bind("n", "<leader>ff", ':lua require("telescope.builtin").find_files()<cr>', opts)
+bind("n", "<leader>fg", ':lua require("telescope.builtin").live_grep()<cr>', opts)
+bind("n", "<leader>fb", ':lua require("telescope.builtin").buffers()<cr>', opts)
+bind("n", "<leader>fh", ':lua require("telescope.builtin").help_tags()<cr>', opts)
+bind("n", "<leader>ft", ':lua require("telescope.builtin").treesitter()<cr>', opts)
+bind("n", "<leader>fo", ':lua require("telescope.builtin").oldfiles()<cr>', opts)
 
 local keys = {
     q = 'Quit all',
