@@ -79,6 +79,7 @@ bind("n", "<leader>fb", ':lua require("telescope.builtin").buffers()<cr>', opts)
 bind("n", "<leader>fh", ':lua require("telescope.builtin").help_tags()<cr>', opts)
 bind("n", "<leader>ft", ':lua require("telescope.builtin").treesitter()<cr>', opts)
 bind("n", "<leader>fo", ':lua require("telescope.builtin").oldfiles()<cr>', opts)
+bind("n", "<leader>fr", ':lua require("telescope.builtin").lsp_references()<cr>', opts)
 
 
 -- Change dir to current dir of openning file
@@ -162,7 +163,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- Jumps to the definition of the type symbol
         bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 
-        -- Lists all the references 
+        -- Lists all the references
         bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
         -- Displays a function's signature information
@@ -185,4 +186,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
         bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
     end
 })
-

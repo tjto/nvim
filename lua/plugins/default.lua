@@ -1,11 +1,24 @@
 return {
+    -- {
+    --     "folke/tokyonight.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         vim.cmd[[colorscheme tokyonight-day]]
+    --     end,
+    -- },
     {
-        "folke/tokyonight.nvim",
+        "mcchrish/zenbones.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd[[colorscheme tokyonight-day]]
+            vim.cmd[[set termguicolors]]
+            vim.cmd[[set background=light]]
+            vim.cmd[[colorscheme zenbones]]
+            -- vim.cmd[[colorscheme tokyobones]]
+            -- vim.cmd[[colorscheme tokyonight-day]]
         end,
+        dependencies = {"rktjmp/lush.nvim"}
     },
     {
         "folke/trouble.nvim",
@@ -53,8 +66,8 @@ return {
         }
     },
     {
-        'akinsho/bufferline.nvim', 
-        version = "*", 
+        'akinsho/bufferline.nvim',
+        version = "*",
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function()
             vim.opt.termguicolors = true
@@ -64,13 +77,13 @@ return {
     {
         'numToStr/Comment.nvim',
         lazy = false,
-        opts = {}   
+        opts = {}
     },
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
-        opts = {}   
+        opts = {}
     },
     {
         'windwp/nvim-autopairs',
@@ -90,6 +103,12 @@ return {
         event = {"CmdlineEnter"},
         ft = {"go", 'gomod'},
         build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+    },
+    {
+        "mcauley-penney/tidy.nvim",
+        opts = {
+            enabled_on_save = true,
+            filetype_exclude = { "markdown", "diff" }
+        },
     }
-
 }

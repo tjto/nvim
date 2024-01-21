@@ -1,12 +1,12 @@
 return {
-    { 
-        "nvim-treesitter/nvim-treesitter", 
+    {
+        "nvim-treesitter/nvim-treesitter",
         config = function()
             require'nvim-treesitter.configs'.setup {
                 ensure_installed = {
-                    "bash", "clojure", "cmake", "comment", "commonlisp", "cpp", "css", 
+                    "bash", "clojure", "cmake", "comment", "commonlisp", "cpp", "css",
                     "diff", "dockerfile", "dot", "erlang", "groovy", "java", "jq", "json", "jsonnet",
-                    "go", "gomod", "gosum", "c", "lua", "vim", "vimdoc", "query", "python", 
+                    "go", "gomod", "gosum", "c", "lua", "vim", "vimdoc", "query", "python",
                     "rust", "graphql", "regex", "typescript", "toml", "terraform", "xml", "yaml",
                     "markdown", "markdown_inline",
                 },
@@ -14,7 +14,13 @@ return {
 
                 highlight = {
                     enable=true,
-                    disable={"python"},
+                    additional_vim_regex_highlighting = false,
+                    use_languagetree = false,
+                    disable = function(lang, bufnr)
+                        local buf_name = vim.api.nvim_buf_get_name(bufnr)
+                        local file_size = vim.api.nvim_call_function("getfsize", { buf_name })
+                        return file_size > 256 * 1024 or lang == "python"
+                    end,
                 },
 
                 sync_install = false,
@@ -62,6 +68,15 @@ return {
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons"
         },
+    },
+    {
+        'nvim-treesitter/nvim-treesitter-context',
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter"
+        },
+        opts = {
+            enabled = false
+        }
     }
-}
 
+}

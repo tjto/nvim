@@ -16,7 +16,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup {
-                ensure_installed = { 
+                ensure_installed = {
                     "ansiblels",
                     "bashls",
                     "clangd",
@@ -74,7 +74,23 @@ return {
         dependencies = {
             "mfussenegger/nvim-dap",
         },
-        opts = {},
+        opts = {
+            dap_configurations = {
+                {
+                    type = "go",
+                    name = "Attach remote",
+                    mode = "remote",
+                    request = "attach",
+                },
+            },
+            delve = {
+                path = "dlv",
+                initialize_timeout_sec = 20,
+                port = "${port}",
+                args = {},
+                build_flags = "",
+            },
+        },
     },
     {
         "rcarriga/nvim-dap-ui",
@@ -84,6 +100,7 @@ return {
         config = function()
 
             local dap, dapui =require("dap"),require("dapui")
+            dapui.setup()
             dap.listeners.after.event_initialized["dapui_config"]=function()
                 dapui.open()
             end
